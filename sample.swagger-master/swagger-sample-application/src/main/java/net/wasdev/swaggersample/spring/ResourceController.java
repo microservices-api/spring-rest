@@ -61,7 +61,7 @@ public class ResourceController implements ResourceApi {
 	}
 
 
-    /* "GET" a task specified by id */
+	/* "GET" a task specified by id */
 	@Override
 	public ResponseEntity<TableDefinition> getTask(
 			@ApiParam(value = "", required = true ) @PathVariable("id") Integer id)
