@@ -1,0 +1,197 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Contact Stub API"
+    },
+    "tags": [
+        {
+            "name": "Contacts API",
+            "description": "Servlet based API"
+        }
+    ],
+    "paths": {
+        "/demo/contacts": {
+            "get": {
+                "summary": "Retrieve all contacts",
+                "tags": [
+                    "Contacts API"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ContactWithID"
+                            }
+                        }
+                    }
+                },
+                "produces": [
+                	"application/json"
+                ]
+            },
+            "post": {
+                "summary": "Create a new contact",
+                "tags": [
+                    "Contacts API"
+                ],
+                "parameters": [
+                    {
+                        "name": "contact",
+                        "in": "body",
+                        "description": "Contact payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Contact created"
+                    }
+                },
+                "consumes": [
+                	"application/json"
+                ],
+                "produces": [
+                	"application/json"
+                ]
+            }
+        },
+        "/demo/contacts/{id}": {
+            "get": {
+                "summary": "Get contact with ID",
+                "tags": [
+                    "Contacts API"
+                ],
+                "parameters": [
+                    {
+						"name": "id",
+						"description": "Contact unique id",
+						"in": "path",
+						"type": "integer",
+						"required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact retrieved",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    },
+                    "404": {
+                        "description": "Contact not found"
+                    }
+                },
+                "produces": [
+                	"application/json"
+                ]
+            },
+            "put": {
+                "summary": "Update contact with ID",
+                "tags": [
+                    "Contacts API"
+                ],
+                "parameters": [
+                    {
+			     		"name": "id",
+			            "description": "Contact unique id",
+			            "in": "path",
+			            "type": "integer",
+			            "required": true
+                    },
+                    {
+                        "name": "contact",
+                        "in": "body",
+                        "description": "Contact payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact updated"
+                    },
+                    "404": {
+                        "description": "Contact not found"
+                    }
+                },
+                "consumes": [
+                	"application/json"
+                ],
+                "produces": [
+                	"text/plain"
+                ]
+            },
+            "delete": {
+                "summary": "Delete contact with ID",
+                "tags": [
+                    "Contacts API"
+                ],
+                "parameters": [
+                    {
+						"name": "id",
+						"description": "Contact unique id",
+						"in": "path",
+						"type": "integer",
+						"required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact deleted"
+                    },
+                    "404": {
+                        "description": "Contact not found"
+                    }
+                },
+                 "produces": [
+                    "text/plain"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Contact": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "John Smith"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "(111)-111-1111"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "test@ibm.com"
+                },
+                "notes": {
+                    "type": "string",
+                    "example": "Extra Info"
+                }
+            }
+        },
+        "ContactWithID": {
+        	"allOf": [
+        		{
+        			"$ref": "#/definitions/Contact"
+        		},
+        		{
+        			"properties": {
+        				"id": {
+        					"type": "integer"
+        				}
+        			}
+        		}
+        	]
+        }
+    }
+}
