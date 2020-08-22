@@ -54,7 +54,7 @@ https://github.com/microservices-api/spring-rest/tree/NoDBConnection
 1.  Select the `swagger-sample-application` project
 2.  Right-click -> *Run As... -> Run On Server*
 3.  Select the appropriate server (as created above) and select *Finish*
-
+ 
 ##### Case 2: Running application with SpringBoot
 1.  Select the `swagger-sample-application` project
 2.  Right-click -> *Run As... -> Spring Boot App*
