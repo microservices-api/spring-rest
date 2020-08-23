@@ -4,6 +4,7 @@ A Spring RESTful microservice
 This sample contains a way of how to use Swagger documentation within Liberty or Tomcat (SpringBoot).
 It also introduces the database connection with DB2 by using the JDBC datasource and the JpaRepository.
 
+
 *Note:* If you don't need to store any data in the database, please take a look at this "No DB Connection version".
 https://github.com/microservices-api/spring-rest/tree/NoDBConnection
 
