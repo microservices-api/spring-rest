@@ -25,6 +25,7 @@ https://github.com/microservices-api/spring-rest/tree/NoDBConnection
 3. In the *Goals* section enter "install"
 4. Click *Run*
 
+
 ## 3. Liberty server setting
 ##### [1] Create a Runtime Environment in Eclipse
 1. Open the 'Runtime Explorer' view:
